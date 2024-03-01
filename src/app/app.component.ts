@@ -22,7 +22,10 @@ export class AppComponent implements OnInit {
 
   onCreatePost(postData: Post) {
     this.postsService.createAndStorePost(postData.title, postData.content)
-      .subscribe(() => this.onFetchPosts());
+      .subscribe((response) => {
+        console.log(response);
+        this.onFetchPosts();
+      });
   }
 
   onFetchPosts() {
